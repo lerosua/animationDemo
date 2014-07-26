@@ -66,19 +66,20 @@
                        [NSValue valueWithCATransform3D:back2],
                        [NSValue valueWithCATransform3D:CATransform3DIdentity],nil]];
     
-    [bounce setDuration:1];
+    bounce.keyTimes = @[@(0.2),@(0.4),@(0.6),@1];
+    [bounce setDuration:4];
     
     [_animationView.layer addAnimation:bounce forKey:@"bounceAnimation"];
 }
 
 - (IBAction)pathAnimation:(id)sender {
     UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:CGPointMake(-40, 100)];
-    [path addLineToPoint:CGPointMake(360, 100)];
-    [path addLineToPoint:CGPointMake(360, 200)];
-    [path addLineToPoint:CGPointMake(-40, 200)];
-    [path addLineToPoint:CGPointMake(-40, 300)];
-    [path addLineToPoint:CGPointMake(360, 300)];
+    [path moveToPoint:CGPointMake(0, 100)];
+    [path addLineToPoint:CGPointMake(320, 100)];
+    [path addLineToPoint:CGPointMake(320, 200)];
+    [path addLineToPoint:CGPointMake(40, 200)];
+    [path addLineToPoint:CGPointMake(40, 300)];
+    [path addLineToPoint:CGPointMake(320, 300)];
     
     CAKeyframeAnimation *moveAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     moveAnimation.path = path.CGPath;

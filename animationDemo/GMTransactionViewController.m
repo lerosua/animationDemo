@@ -37,6 +37,7 @@
     self.layer.frame = CGRectMake(67, 64, 200, 200);
     [self.view.layer addSublayer:self.layer];
     
+    NSLog(@"present layer %@",[self.animationView.layer presentationLayer]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,10 +60,14 @@
 - (IBAction)animationAction:(id)sender {
     [CATransaction begin];
 
-    self.layer.cornerRadius = (self.layer.cornerRadius == 0.0f) ? 100.0f : 0.0f;
 
+    [CATransaction setAnimationDuration:4];
+
+    self.layer.cornerRadius = (self.layer.cornerRadius == 0.0f) ? 100.0f : 0.0f;
+//    self.layer.frame = CGRectMake(200, 100, 100, 100);
     self.animationView.layer.cornerRadius = (self.animationView.layer.cornerRadius == 0.0f)?100.0f:0.0f;
-    [CATransaction setAnimationDuration:10];
+
+//}];
 
     
     [CATransaction commit];
